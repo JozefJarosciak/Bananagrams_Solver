@@ -181,7 +181,7 @@ function endProgramSolutionFound() {
 
 
     if (originputCharacters.length === placedCharacters) {
-        this.postMessage({result: "<hr><h3>Bananagram Solved!</h3> All (" + originputCharacters.length + ") letter tiles were successfully placed:<br><br>"});
+        this.postMessage({result: "<hr><h3>Bananagram Solved!</h3> All " + originputCharacters.length + " tiles were successfully placed:<br><br>"});
         this.postMessage({buttonName: "Solve"});
     } else {
         this.postMessage({result: "<hr><h3>Sorry, I am not able to solve this Bananagram!</h3>"});
