@@ -17,7 +17,8 @@ In the following article:
 [https://www.joe0.com/2019/01/03/bananagrams-solver-in-javascript-php-mysql/](https://www.joe0.com/2019/01/03/bananagrams-solver-in-javascript-php-mysql/)
 
 # Licensing
-GNU Affero General Public License v3.0.
+GNU Affero General Public License v3.0. See the [License Terms](https://github.com/JozefJarosciak/Bananagrams_Solver/blob/master/LICENSE.md).
+
 
 # Screenshot
 ![Screenshot1](https://www.joe0.com/wp-content/uploads/2019/01/img_5c2f6e9509391.png)
