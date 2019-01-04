@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bananagrams Solver</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/javascript.js"></script>
+    <script src="js/jquery3.3.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Online Anagram Solver for Bananagrams game."/>
+</head>
+
+<body>
+
+<div id="page-wrap">
+    <a href="/">
+    <img border="0" src="img/bananagrams_logo_new.png">
+    </a>
+    
+    <br>
+        <br>
+
+    <table>
+        <tr>
+            <td> Minimum Word Length: <select name="shortestWord" id="shortestWord">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select></td>
+
+            <td style="width: 270px">Maximum Word Length: <select name="longestWord" id="longestWord">
+                <option value="1000">&gt;10</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+            </select></td>
+
+
+            <td>Maximum Iterations: <select name="maxiterations" id="maxiterations">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select></td>
+
+        </tr>
+    </table>
+
+
+
+    <br>
+
+    <input id="input" onkeydown="upperCase(this)" value="" placeholder="Enter Characters" onclick="removePlaceholder()"><br>
+    <input id="button" type="button" class="button" value="Solve" onclick="webWorkerThread();">
+    <div id="message"></div>
+
+    <div id="grid"></div>
+
+
+
+</div>
+
+
+<!-- Default Statcounter code for Bananagramsolve.com
+http://www.bananagramsolve.com -->
+<script type="text/javascript">
+    var sc_project=11918478;
+    var sc_invisible=1;
+    var sc_security="d82429e4";
+</script>
+<script type="text/javascript"
+        src="https://www.statcounter.com/counter/counter.js"
+        async></script>
+<noscript><div class="statcounter"><a title="web stats"
+                                      href="http://statcounter.com/" target="_blank"><img
+        class="statcounter"
+        src="//c.statcounter.com/11918478/0/d82429e4/1/" alt="web
+stats"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+
+<br><br><br>
+<hr style="text-align:right;width:380px;position: fixed;padding:10px;bottom: 0;right: 0;">
+<small style="position: fixed;bottom: 0;right: 0;padding:10px;color:darkgrey">
+    ©
+    <script>document.write(new Date().getFullYear())</script>
+    - Jozef Jarosciak - Open Source on <a href="https://github.com/JozefJarosciak/BlockPuzzleSolver/" target="_blank">GitHub</a> under <a href="https://github.com/JozefJarosciak/BlockPuzzleSolver/blob/master/LICENSE.txt" target="_blank">MIT</a> license.
+    <br>
+</small>
+
+</body>
+</html>
