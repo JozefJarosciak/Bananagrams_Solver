@@ -11,8 +11,9 @@ Bananagrams is a word game similar to Scrabble, invented by Abraham Nathanson in
 # Demo
 [http://www.BananagramSolve.com/](http://www.BananagramSolve.com/)
 
+# Screenshot
+![Screenshot1](https://www.joe0.com/wp-content/uploads/2019/01/img_5c2f6e9509391.png)
+
 # Coding Process
 In the following article:
 [https://www.joe0.com/2019/01/03/bananagrams-solver-in-javascript-php-mysql/](https://www.joe0.com/2019/01/03/bananagrams-solver-in-javascript-php-mysql/)
-
-![Screenshot1](https://www.joe0.com/wp-content/uploads/2019/01/img_5c2f6e9509391.png)
