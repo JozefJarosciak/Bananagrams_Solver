@@ -1,12 +1,19 @@
+
 function removePlaceholder() {
     document.getElementById("input").placeholder = "";
 }
 
 function webWorkerThread() {
-
+    document.getElementById("foundwords").innerHTML = "";
     document.getElementById("button").value = "processing...";
     document.getElementById("button").disabled = true;
     document.getElementById("button").style.background = '#787878';
+    document.getElementById("shortestWord").disabled = true;
+    document.getElementById("longestWord").disabled = true;
+    document.getElementById("dictionary").disabled = true;
+    document.getElementById("maxiterations").disabled = true;
+    document.getElementById("input").disabled = true;
+
 
     var worker = new Worker('js/search.js');
 
@@ -14,14 +21,15 @@ function webWorkerThread() {
     var shortestWord = document.getElementById("shortestWord").value;
     var longestWord = document.getElementById("longestWord").value;
     var maxiterations = document.getElementById("maxiterations").value;
-
+    var dictionary = document.getElementById("dictionary").value;
     // send message to web worker
     var message = {
         addThis: {
-            shortestWord: shortestWord,
+           shortestWord: shortestWord,
             longestWord: longestWord,
             maxiterations: maxiterations,
-            inputCharacters: document.getElementById("input").value.toString()
+            inputCharacters: document.getElementById("input").value.toString(),
+            dictionary: dictionary
         }
     };
     worker.postMessage(message);
@@ -50,14 +58,35 @@ function webWorkerThread() {
             document.getElementById("button").value = e.data.buttonName;
             document.getElementById("button").disabled = false;
             document.getElementById("button").style.background = '#008CBA';
-            document.getElementById("grid").innerHTML += "<br><hr>";
+            document.getElementById("shortestWord").disabled = false;
+            document.getElementById("longestWord").disabled = false;
+            document.getElementById("dictionary").disabled = false;
+            document.getElementById("maxiterations").disabled = false;
+            document.getElementById("input").disabled = false;
+
+            /*
+            if (document.getElementById("grid").innerHTML.indexOf("<hr>" < 0)) {
+            document.getElementById("grid").innerHTML += "<hr>";
+            }
+            */
+
         }
 
         if (e.data.end) {
             worker.terminate();
         }
 
-        if (e.data.progressCell) {
+        if (e.data.description) {
+            //console.log(e.data.description);
+            var arrayOfFoundWords = e.data.description;
+            var finallist = "<hr><table id=\"resultWords\">";
+            for (var i = 1; i < arrayOfFoundWords.length; i++) {
+                //console.log(arrayOfFoundWords[i]);
+                var finalword = arrayOfFoundWords[i].split("|");
+                finallist += "<tr><td id=\"leftcell\"><b>" + finalword[0].toUpperCase() + "</b></td><td id='leftcell'><small>   " + finalword[1]+"</small></td></tr>";
+            }
+            finallist += "</table>"
+            document.getElementById("foundwords").innerHTML += finallist;
             worker.terminate();
         }
 
@@ -76,3 +105,5 @@ String.prototype.replaceAll = function (search, replacement) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
 };
+
+

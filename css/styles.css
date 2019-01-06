@@ -18,8 +18,13 @@ img {
 }
 
 hr{
-    max-width: 800px;
+    max-width: 750px;
     border-top: 1px dashed #cecece;
+}
+
+#foundwords {
+text-align: left;
+    padding: 20px;
 }
 
 .button {
@@ -38,6 +43,11 @@ td {
     width: 0px;
     height: 0px;
     text-align: center;
+}
+
+td#leftcell {
+    text-align: left;
+    border: 1px solid #f6f6f8;
 }
 
 td#decorate {

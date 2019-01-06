@@ -22,16 +22,28 @@
 
     <table>
         <tr>
-            <td> Minimum Word Length: <select name="shortestWord" id="shortestWord">
+
+            <td style="width: 200px"> Min. Word Length:<br><select name="shortestWord" id="shortestWord">
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select></td>
 
-            <td style="width: 270px">Maximum Word Length: <select name="longestWord" id="longestWord">
-                <option value="1000">&gt;10</option>
-                <option value="10">10</option>
+
+                <td style="width: 200px">Max. Word Length:<br><select name="longestWord" id="longestWord">
+                <option value="1000">unlimited</option>
+                    <option value="20">20</option>
+                    <option value="19">19</option>
+                    <option value="18">18</option>
+                    <option value="17">17</option>
+                    <option value="16">16</option>
+                    <option value="15">15</option>
+                    <option value="14">14</option>
+                    <option value="13">13</option>
+                    <option value="12">12</option>
+                    <option value="11">11</option>
+                    <option value="10">10</option>
                 <option value="9">9</option>
                 <option value="8">8</option>
                 <option value="7">7</option>
@@ -40,7 +52,7 @@
             </select></td>
 
 
-            <td>Maximum Iterations: <select name="maxiterations" id="maxiterations">
+            <td style="width: 200px">Max. Iterations:<br><select name="maxiterations" id="maxiterations">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -48,19 +60,43 @@
                 <option value="50">50</option>
             </select></td>
 
+            <td style="width: 200px">Dictionary:<br><select name="dictionary" id="dictionary">
+                <option value="en_english20k">EN - Most Common Words (20k words)</option>
+                <option value="en_collins_scrabble_2015">EN - 2015 Collins Scrabble Dictionary (276k words)</option>
+                <option value="en_english479k">EN - English Dictionary (484k words). Source: Internet</option>
+                <option value="en_aspell">EN - 2018 English Dictionary (119,772 words). Source: Aspell</option>
+                <option value="cs_aspell">CS - Czech Dictionary (4,669,280 words). Source: Aspell</option>
+                <option value="da_aspell">DA - Danish Dictionary (360,723 words). Source: Aspell</option>
+                <option value="de_aspell">DE - German Dictionary (312,001 words). Source: Aspell</option>
+                <option value="es_aspell">ES - Spanish Dictionary 2018 (1,250,780 words). Source: Aspell</option>
+                <option value="fr_aspell">FR - French Dictionary 2018 (629,568 words). Source: Aspell</option>
+                <option value="nl_aspell">NL - Dutch Dictionary 2018 (222,907 words). Source: Aspell</option>
+                <option value="pl_aspell">PL - Polish Dictionary 2018 (3,401,773 words). Source: Aspell</option>
+                <option value="pt_aspell">PT - Portuguese Dictionary 2018 (460,836 words). Source: Aspell</option>
+                <option value="sk_aspell">SK - Slovak Dictionary 2018 (1,694,148 words). Source: Aspell</option>
+                <option value="sk_pravidla_slovenskeho_pravopisu_2013">SK - Pravidlá Slovenského Pravopisu 2013 (97,292 slov)</option>
+                <option value="sk_slovnik_cudzich_slov_2005">SK - Slovník Cudzích Slov 2005 (36,933 slov)</option>
+                <option value="sk_slovnik_slovenskeho_jazyka_1959_1968">SK - Slovník Slovenského Jazyka 1968 (75,681 slov)</option>
+                <option value="sk_synonymicky_slovnik_slovenciny_2004">SK - Synonymický Slovník Slovenčiny 2004 (42,285 slov)</option>
+            </select></td>
+
+
         </tr>
     </table>
 
 
 
     <br>
-
-    <input id="input" onkeydown="upperCase(this)" value="" placeholder="Enter Characters" onclick="removePlaceholder()"><br>
+    <input id="input" autocomplete="off" autocorrect="off" spellcheck="false" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" onkeydown="upperCase(this)" type="text" value="" placeholder="Enter Characters" onclick="removePlaceholder()"><br>
     <input id="button" type="button" class="button" value="Solve" onclick="webWorkerThread();">
+
+
+
     <div id="message"></div>
 
     <div id="grid"></div>
 
+    <div id="foundwords"></div>
 
 
 </div>
