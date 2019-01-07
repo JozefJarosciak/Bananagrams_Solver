@@ -4,6 +4,8 @@ function removePlaceholder() {
 }
 
 function webWorkerThread() {
+
+    if (document.getElementById("input").value.length > 2) {
     document.getElementById("foundwords").innerHTML = "";
     document.getElementById("button").value = "processing...";
     document.getElementById("button").disabled = true;
@@ -13,6 +15,9 @@ function webWorkerThread() {
     document.getElementById("dictionary").disabled = true;
     document.getElementById("maxiterations").disabled = true;
     document.getElementById("input").disabled = true;
+    document.getElementById("random").disabled = true;
+    document.getElementById("randLen").disabled = true;
+
 
 
     var worker = new Worker('js/search.js');
@@ -63,6 +68,8 @@ function webWorkerThread() {
             document.getElementById("dictionary").disabled = false;
             document.getElementById("maxiterations").disabled = false;
             document.getElementById("input").disabled = false;
+            document.getElementById("random").disabled = false;
+            document.getElementById("randLen").disabled = false;
 
             /*
             if (document.getElementById("grid").innerHTML.indexOf("<hr>" < 0)) {
@@ -92,7 +99,59 @@ function webWorkerThread() {
 
 
     };
+
+    } else {}
+
+
 }
+
+function makeRandomString() {
+    var text = "";
+    var possible =
+        "EEEEEEEEEEEE" +
+        "AAAAAAAAA"+
+        "IIIIIIIII"+
+        "OOOOOOOO"+
+        "NNNNNN"+
+        "RRRRRR"+
+        "TTTTTT"+
+        "LLLL"+
+        "SSSS"+
+        "UUUU"+
+        "DDDD"+
+        "GGG"+
+        "BB"+
+        "CC"+
+        "MM"+
+        "PP"+
+        "K"+
+        "J"+
+        "X"+
+        "Q"+
+        "Z";
+
+
+    if (document.getElementById("dictionary").value.indexOf("sk_") > -1) {
+        console.log(document.getElementById("dictionary").value.indexOf("sk_"));
+        possible =
+            "AAAAAAAAAOOOOOOOOO" +
+            "EEEEEEEEIIIIINNNNNRRRRSSSSTTTTVVVV"+
+            "MMMMDDDKKKLLLPPP"+
+            "JJUUBB"+
+            "ÁCHYZ"+
+            "ČÍŠÝŽÉĽŤÚĎFGŇÔÄĹÓŔ"+
+            "X";
+    } else {
+        console.log(document.getElementById("dictionary").value.indexOf("sk_"));
+    }
+
+
+    for (var i = 0; i < document.getElementById("randLen").value; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    document.getElementById("input").value = text;
+
+}
+
 
 
 function upperCase(a) {

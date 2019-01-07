@@ -23,16 +23,21 @@
     <table>
         <tr>
 
-            <td style="width: 200px"> Min. Word Length:<br><select name="shortestWord" id="shortestWord">
+            <td style="width: 200px"> Min. Length:<br><select name="shortestWord" id="shortestWord">
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
             </select></td>
 
 
-                <td style="width: 200px">Max. Word Length:<br><select name="longestWord" id="longestWord">
-                <option value="1000">unlimited</option>
+                <td style="width: 200px">Max. Length:<br><select name="longestWord" id="longestWord">
+                <option value="100">unlimited</option>
                     <option value="20">20</option>
                     <option value="19">19</option>
                     <option value="18">18</option>
@@ -49,6 +54,8 @@
                 <option value="7">7</option>
                 <option value="6">6</option>
                 <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
             </select></td>
 
 
@@ -61,8 +68,8 @@
             </select></td>
 
             <td style="width: 200px">Dictionary:<br><select name="dictionary" id="dictionary">
-                <option value="en_english20k">EN - Most Common Words (20k words)</option>
                 <option value="en_collins_scrabble_2015">EN - 2015 Collins Scrabble Dictionary (276k words)</option>
+                <option value="en_english20k">EN - Most Common Words (20k words)</option>
                 <option value="en_english479k">EN - English Dictionary (484k words). Source: Internet</option>
                 <option value="en_aspell">EN - 2018 English Dictionary (119,772 words). Source: Aspell</option>
                 <option value="cs_aspell">CS - Czech Dictionary (4,669,280 words). Source: Aspell</option>
@@ -87,8 +94,31 @@
 
 
     <br>
-    <input id="input" autocomplete="off" autocorrect="off" spellcheck="false" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" onkeydown="upperCase(this)" type="text" value="" placeholder="Enter Characters" onclick="removePlaceholder()"><br>
+
+    <input id="input" autocomplete="off" autocorrect="off" spellcheck="false" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" onkeydown="upperCase(this)" type="text" value="" placeholder="Enter Characters" onclick="removePlaceholder()">
+<br>
+    <select name="randLen" id="randLen">
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="35">35</option>
+        <option value="40">40</option>
+    </select>
+    <input id="random" type="button" class="buttonrandom" value="Generate Random" onclick="makeRandomString();">
+
+    <br>
     <input id="button" type="button" class="button" value="Solve" onclick="webWorkerThread();">
+
 
 
 
@@ -121,11 +151,11 @@ stats"></a></div></noscript>
 
 
 <br><br><br>
-<hr style="text-align:right;width:420px;position: fixed;padding:10px;bottom: 0;right: 0;">
-<small style="position: fixed;bottom: 0;right: 0;padding:10px;color:darkgrey">
+<hr style="text-align:right;width:310px;position: fixed;padding:10px;bottom: 0;right: 0;">
+<small style="position: fixed;bottom: 0;right: 0;padding:10px;color:grey">
     ©
     <script>document.write(new Date().getFullYear())</script>
-    - Jozef Jarosciak - Open Source on <a href="https://github.com/JozefJarosciak/Bananagrams_Solver" target="_blank">GitHub</a> under <a href="https://github.com/JozefJarosciak/BlockPuzzleSolver/blob/master/LICENSE.txt" target="_blank">AGPL-3.0</a> license.
+    - Jozef Jarosciak - Open Source <a href="https://github.com/JozefJarosciak/BlockPuzzleSolver/blob/master/LICENSE.txt" target="_blank">AGPL-3.0</a> license.
     <br>
 </small>
 

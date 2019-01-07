@@ -5,7 +5,7 @@ var originputCharacters = "";
 var remainingCharacters = "";
 var foundWordsArray = new Array([]);
 var counterRepeater = 1;
-var longestWord = 1000;
+var longestWord = 100;
 var maxIterations = 10;
 var dictionary = "";
 var finished = false;
@@ -58,7 +58,7 @@ function gridSolver(itt) {
 
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "../api/api.php?q=" + inputCharacters + "&offset=" + itt + "&shortestWord=" + shortestWord + "&longestWord=" + longestWord + "&dictionary=" + dictionary, false);  // synchronous request
+    xhr.open("GET", "../api/api.php?q=" + inputCharacters + "&offset=" + itt + "&shortestWord=" + shortestWord + "&longestWord=" + longestWord + "&dictionary=" + dictionary+ "&first=1", false);  // synchronous request
     xhr.send(null);
 
     var firstWord = xhr.responseText.split('|');
@@ -346,6 +346,7 @@ function addWordToGrid(selectedItem) {
             this.postMessage({buttonName: "Solve"});
             this.postMessage({end: "end"});
         } else {
+            counterRepeater++;
             gridSolver(counterRepeater);
         }
 
@@ -364,6 +365,7 @@ function addWordToGrid(selectedItem) {
             this.postMessage({end: "end"});
 
         } else {
+
             gridSolver(counterRepeater);
         }
     }
@@ -379,7 +381,7 @@ function setFoundArray() {
             if (grid[x][y]) {
                 letterFromBoard = grid[x][y];
                 var xhr = new XMLHttpRequest();
-                xhr.open("GET", "../api/api.php?q=" + (remainingCharacters + letterFromBoard) + "&offset=" + 0 + "&shortestWord=" + shortestWord + "&longestWord=" + longestWord + "&dictionary=" + dictionary, false);  // synchronous request
+                xhr.open("GET", "../api/api.php?q=" + (remainingCharacters + letterFromBoard) + "&offset=" + 0 + "&shortestWord=" + shortestWord + "&longestWord=" + longestWord + "&dictionary=" + dictionary+ "&first=0", false);  // synchronous request
                 xhr.send(null);
                 //console.log("X:" +x + " x Y:" + y + " : " + remainingCharacters+ " + " +letterFromBoard);
                 var firstWord = xhr.responseText.split('|');
