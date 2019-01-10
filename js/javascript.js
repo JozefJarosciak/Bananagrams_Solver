@@ -99,7 +99,7 @@ function webWorkerThread() {
 
                     var remote = $.ajax({
                         type: "GET",
-                        url: "/api/getdescription.php?q="+finalword[0],
+                        url: "/api/getdescription-sk.php?q="+finalword[0],
                         async: false
                     }).responseText;
 
@@ -107,7 +107,23 @@ function webWorkerThread() {
 
 
 
-                } else {
+                }
+
+                // EN
+                if (document.getElementById("dictionary").value.indexOf("en_") > -1) {
+
+                    finallist += "<tr><td id=\"leftcell\"><b><a href=\"https://www.merriam-webster.com/dictionary/" + finalword[0] + "\" target=\"_blank\">" + finalword[0].toUpperCase() + "</a></b></td>";
+
+                    var remote = $.ajax({
+                        type: "GET",
+                        url: "/api/getdescription-en.php?q="+finalword[0],
+                        async: false
+                    }).responseText;
+
+                    finallist += "<td id='leftcell'><small>   " + remote +"</small></td></tr>";
+
+                }
+                else {
                     finallist += "<tr><td id=\"leftcell\"><b>" + finalword[0] + "</b></td><td id='leftcell'><small>   " + finalword[1]+"</small></td></tr>";
                 }
 
