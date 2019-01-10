@@ -381,7 +381,7 @@ function setFoundArray() {
             if (grid[x][y]) {
                 letterFromBoard = grid[x][y];
                 var xhr = new XMLHttpRequest();
-                xhr.open("GET", "../api/api.php?q=" + (remainingCharacters + letterFromBoard) + "&offset=" + 0 + "&shortestWord=" + shortestWord + "&longestWord=" + longestWord + "&dictionary=" + dictionary+ "&first=0", false);  // synchronous request
+                xhr.open("GET", "../api/api.php?q=" + (remainingCharacters + letterFromBoard) + "&offset=0"  + "&shortestWord=" + shortestWord + "&longestWord=" + longestWord + "&dictionary=" + dictionary+ "&first=0", false);  // synchronous request
                 xhr.send(null);
                 //console.log("X:" +x + " x Y:" + y + " : " + remainingCharacters+ " + " +letterFromBoard);
                 var firstWord = xhr.responseText.split('|');

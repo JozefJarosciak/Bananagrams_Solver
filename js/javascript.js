@@ -90,7 +90,28 @@ function webWorkerThread() {
             for (var i = 1; i < arrayOfFoundWords.length; i++) {
                 //console.log(arrayOfFoundWords[i]);
                 var finalword = arrayOfFoundWords[i].split("|");
-                finallist += "<tr><td id=\"leftcell\"><b>" + finalword[0].toUpperCase() + "</b></td><td id='leftcell'><small>   " + finalword[1]+"</small></td></tr>";
+
+               // document.getElementById("foundwords").innerHTML = "please wait... getting content...";
+
+                // SK
+                if (document.getElementById("dictionary").value.indexOf("sk_") > -1) {
+                    finallist += "<tr><td id=\"leftcell\"><b><a href=\"http://slovniky.juls.savba.sk/?w=" + finalword[0] + "\" target=\"_blank\">" + finalword[0].toUpperCase() + "</a></b></td>";
+
+                    var remote = $.ajax({
+                        type: "GET",
+                        url: "/api/getdescription.php?q="+finalword[0],
+                        async: false
+                    }).responseText;
+
+                    finallist += "<td id='leftcell'><small>   " + remote +"</small></td></tr>";
+
+
+
+                } else {
+                    finallist += "<tr><td id=\"leftcell\"><b>" + finalword[0] + "</b></td><td id='leftcell'><small>   " + finalword[1]+"</small></td></tr>";
+                }
+
+                //finallist += "<tr><td id=\"leftcell\"><b>" + finalword[0].toUpperCase() + "</b></td><td id='leftcell'><small>   " + finalword[1]+"</small></td></tr>";
             }
             finallist += "</table>"
             document.getElementById("foundwords").innerHTML += finallist;
@@ -134,13 +155,12 @@ function makeRandomString() {
     if (document.getElementById("dictionary").value.indexOf("sk_") > -1) {
         console.log(document.getElementById("dictionary").value.indexOf("sk_"));
         possible =
-            "AAAAAAAAAOOOOOOOOO" +
-            "EEEEEEEEIIIIINNNNNRRRRSSSSTTTTVVVV"+
-            "MMMMDDDKKKLLLPPP"+
-            "JJUUBB"+
-            "ÁCHYZ"+
-            "ČÍŠÝŽÉĽŤÚĎFGŇÔÄĹÓŔ"+
-            "X";
+            "AAAAAAAAAAAAAAAAAAOOOOOOOOOOOOOOOOOO" +
+            "EEEEEEEEEEEEEEEEIIIIIIIIIINNNNNNNNNNRRRRRRRRSSSSSSSSTTTTTTTTVVVVVVVV"+
+            "MMMMMMMMDDDDDDKKKKKKLLLLLLPPPPPP"+
+            "JJJJUUUUBBBB"+
+            "ÁÁCCHHYYZZ"+
+            "ČÍŠÝŽÉĽŤÚĎFGŇÔÄĹÓŔX";
     } else {
         console.log(document.getElementById("dictionary").value.indexOf("sk_"));
     }

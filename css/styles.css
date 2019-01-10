@@ -1,7 +1,7 @@
 #input {
     text-align:center;
     width: 90%;
-    max-width: 90%;
+    max-width: 800px;
     font-weight: bold;
     padding: 10px 20px;
     text-align: center;
@@ -78,6 +78,9 @@ td {
 td#leftcell {
     text-align: left;
     border: 1px solid #f6f6f8;
+    border-bottom: 2px dotted #787878;
+    text-align: left;
+    vertical-align: top;
 }
 
 td#decorate {

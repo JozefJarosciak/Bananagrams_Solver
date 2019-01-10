@@ -31,6 +31,7 @@ $offset_position = htmlspecialchars(mb_strtolower(($_GET["offset"])));
 
 if ($longestWord >= 100) {
     $randomNumb = rand($shortestWord,strlen($characters));
+    $longestWord = strlen($characters);
     //echo "1 - " . $randomNumb;
 } else {
     $randomNumb = rand($shortestWord,$longestWord);
@@ -98,16 +99,13 @@ function buildSQLQuery($characters, $characters_Array, $chars_UniqueOnlyArray, $
     //$sqlQuery .= ' AND CHAR_LENGTH(word)>=' . ($shortestWord) . ' AND CHAR_LENGTH(word) <=' . $longestWord . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
 
     if ($first==='1') {
-    //    $sqlQuery .= ' AND CHAR_LENGTH(word)>=' . ($shortestWord) . ' AND CHAR_LENGTH(word) <=' . $randomNumb . ' LIMIT ' . $offset_position . ',1';}
         $sqlQuery .= ' AND CHAR_LENGTH(word)>=' . $shortestWord . ' AND CHAR_LENGTH(word) <=' . $longestWord . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
-    //$sqlQuery .= ' AND CHAR_LENGTH(word)>=' . ($shortestWord) . ' AND CHAR_LENGTH(word) <=' . $longestWord . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
         }
     else {
-       // $sqlQuery .= ' AND CHAR_LENGTH(word)>=' . $shortestWord . ' AND CHAR_LENGTH(word) <=' . $randomNumb . ' LIMIT ' . $offset_position . ',1';
-        $sqlQuery .= ' AND CHAR_LENGTH(word)>=' . $shortestWord . ' AND CHAR_LENGTH(word) <=' . $randomNumb . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
+        $sqlQuery .= ' AND CHAR_LENGTH(word)>=' . $shortestWord . ' AND CHAR_LENGTH(word) <=' . $longestWord . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
+        //$sqlQuery .= ' AND CHAR_LENGTH(word)>=' . $shortestWord . ' AND CHAR_LENGTH(word) <=' . $randomNumb . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
     }
 
-    //$sqlQuery .= ' AND CHAR_LENGTH(word)>=' . ($shortestWord) . ' AND CHAR_LENGTH(word) <=' . $longestWord . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
     return $sqlQuery;
 }
 
