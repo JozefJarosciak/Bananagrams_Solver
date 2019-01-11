@@ -36,7 +36,25 @@ td#tdinput{
     margin: 0px;
 }
 
+/* unvisited link */
+a:link {
+    color: #1b5fff;
+}
 
+/* visited link */
+a:visited {
+    color: #1b5fff;
+}
+
+/* mouse over link */
+a:hover {
+    color: #0020ff;
+}
+
+/* selected link */
+a:active {
+    color: #1b5fff;
+}
 
 
 

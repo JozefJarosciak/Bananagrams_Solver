@@ -95,6 +95,7 @@ function buildSQLQuery($characters, $characters_Array, $chars_UniqueOnlyArray, $
 
 
 
+
     //$sqlQuery .= ' AND rank BETWEEN 1 AND 20000 AND CHAR_LENGTH(word)>' . ($shortestWord - 1) . ' AND CHAR_LENGTH(word) <=' . $longestWord . ' ORDER BY length(word) DESC, rank ASC LIMIT ' . $offset_position . ',1';
     //$sqlQuery .= ' AND CHAR_LENGTH(word)>=' . ($shortestWord) . ' AND CHAR_LENGTH(word) <=' . $longestWord . ' ORDER BY length(word) DESC LIMIT ' . $offset_position . ',1';
 

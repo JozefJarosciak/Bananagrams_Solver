@@ -123,7 +123,8 @@ function webWorkerThread() {
                     finallist += "<td id='leftcell'><small>   " + remote +"</small></td></tr>";
 
                 }
-                else {
+
+                if ((document.getElementById("dictionary").value.indexOf("en_") === -1) && (document.getElementById("dictionary").value.indexOf("sk_") === -1)) {
                     finallist += "<tr><td id=\"leftcell\"><b>" + finalword[0] + "</b></td><td id='leftcell'><small>   " + finalword[1]+"</small></td></tr>";
                 }
 
