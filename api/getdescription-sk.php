@@ -46,8 +46,6 @@ if ($foundDescription===null) {
         echo "set: ".$foundDescription;
      }
 
-
-
 } else {
     echo $foundDescription;
 }
