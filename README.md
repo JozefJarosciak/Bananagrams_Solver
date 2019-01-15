@@ -9,8 +9,11 @@ The Bananagrams Solver calculates the solution to Bananagrams game.
 
 Bananagrams is a word game similar to Scrabble, invented by Abraham Nathanson in 2006.  From a bag of 144 lettered tiles, each player randomly picks the predetermined number of tiles (usually 21 letters). The goal of the game for each player is to use all of the given letters by creating the word grid of intersecting or interlocking letters that form valid English words. Players can rearrange their grid as many times they like. The player that uses up all of their tiles first, wins the game. The major skill that is required for this game is the ability to create anagram words formed by rearranging the letters by using all the original letters exactly once.
 
-# Demo
+# Website Demo
 [http://www.BananagramSolve.com/](http://www.BananagramSolve.com/)
+
+#YouTube Demo
+[https://www.youtube.com/watch?v=lOXK0-jkyFg](https://www.youtube.com/watch?v=lOXK0-jkyFg)
 
 # Coding Process
 In the following article:
