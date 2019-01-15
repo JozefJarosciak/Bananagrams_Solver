@@ -12,7 +12,7 @@ Bananagrams is a word game similar to Scrabble, invented by Abraham Nathanson in
 # Website Demo
 [http://www.BananagramSolve.com/](http://www.BananagramSolve.com/)
 
-#YouTube Demo
+# YouTube Demo
 [https://www.youtube.com/watch?v=lOXK0-jkyFg](https://www.youtube.com/watch?v=lOXK0-jkyFg)
 
 # Coding Process
