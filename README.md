@@ -24,4 +24,4 @@ GNU Affero General Public License v3.0. See the [License Terms](https://github.c
 
 
 # Screenshot
-![Screenshot1](https://www.joe0.com/wp-content/uploads/2019/01/img_5c2f6e9509391.png)
+![Screenshot1](https://www.joe0.com/wp-content/uploads/2019/01/img_5c3b92aab3671-768x797.png)
